@@ -1,0 +1,99 @@
+body {
+  font-weight: 200;
+  font-family: "Quicksand", sans-serif;
+}
+
+.mainmenu,
+.submenu {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.mainmenu {
+  background-color: #390fbb;
+  color: #fff;
+  height: 100%;
+  width: 100%;
+  position: fixed;
+  padding-top: 2%;
+  font-family: "Quicksand", sans-serif;
+
+  a {
+    cursor: pointer;
+    display: block;
+    text-decoration: none;
+    padding: 12px;
+    position: relative;
+    text-transform: capitalize;
+    color: #fff;
+    &:hover,
+    &.selected {
+      background-color: rgba(255, 255, 255, 0.226);
+    }
+  }
+}
+
+.parent-selected {
+  background-color: rgba(255, 255, 255, 0.226);
+}
+
+/* this is the initial state of all submenus.
+    we set it to max-height: 0, and hide the overflowed content.
+  */
+.submenu {
+  overflow: hidden;
+  max-height: 0;
+  transition: all 0.5s ease-out;
+  -webkit-transition: all 0.5s ease-out;
+}
+
+.arrow-down {
+  border: none;
+}
+
+.mainmenu .is-selected {
+  + .submenu {
+    display: block;
+    max-height: 200px;
+  }
+
+  .arrow-down {
+    width: 0;
+    height: 0;
+    border-left: 7px solid transparent;
+    border-right: 7px solid transparent;
+    border-top: 7px solid #fff;
+    position: absolute;
+    left: 14%;
+    top: 40%;
+  }
+}
+
+.arrow-right {
+  width: 0;
+  height: 0;
+  border-top: 7px solid transparent;
+  border-bottom: 7px solid transparent;
+  border-left: 7px solid #fff;
+  position: absolute;
+  left: 14%;
+  top: 40%;
+}
+
+.mainmenu .submenu {
+  a {
+    background-color: #220679;
+
+    &:hover,
+    &.selected {
+      color: #fff;
+      font-weight: bold;
+    }
+  }
+}
+
+.logo-container {
+  padding: 1% 0 1% 1%;
+  color: #220679;
+}
