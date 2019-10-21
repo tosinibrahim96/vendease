@@ -21,6 +21,7 @@ export default function App() {
         </Col>
         <Col sm={10} className="app-content">
           <Switch>
+            <Route exact path="/" component={Dashboard} />
             <Route path="/dashboard" component={Dashboard} />
             <Route path="/products/add" component={AddProduct} />
             <Route path="/products/edit" component={EditProduct} />
