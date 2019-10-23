@@ -1,12 +1,19 @@
-import React from "react";
+import React, { useState } from "react";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
-import './GraphSectionHeader.scss';
+import "react-dates/initialize";
+import { DateRangePicker } from "react-dates";
+import "react-dates/lib/css/_datepicker.css";
+import "./GraphSectionHeader.scss";
 
 const GraphSectionHeader = () => {
+  const [startDate, setStartDate] = useState("");
+  const [endDate, setEndDate] = useState("");
+  const [focusedInput, setFocusedInput] = useState("");
+
   return (
     <Row>
-      <Col sm={8}>
+      <Col sm={7}>
         <ul className="time-ranges">
           <li>1w</li>
           <li>2w</li>
@@ -18,6 +25,21 @@ const GraphSectionHeader = () => {
           <li>ytd</li>
           <li>all</li>
         </ul>
+      </Col>
+      <Col sm={5}>
+        <DateRangePicker
+          startDate={startDate} 
+          startDateId="randomStartDateId" 
+          endDate={endDate} 
+          endDateId="randomEndDateId"
+          onDatesChange={({ startDate, endDate }) => {
+            setStartDate(startDate);
+            setEndDate(endDate);
+          }} 
+          focusedInput={focusedInput} 
+          onFocusChange={focusedInput => setFocusedInput(focusedInput)}
+          showClearDates
+        />
       </Col>
     </Row>
   );
