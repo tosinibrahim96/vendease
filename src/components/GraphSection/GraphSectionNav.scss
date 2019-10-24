@@ -1,0 +1,40 @@
+.graphsection-container {
+  width: 100%;
+  background-color: #390fbb;
+  margin-top: 3%;
+  padding-left: 5%;
+  display: flex;
+
+  .graphnav-item {
+    text-transform: uppercase;
+    text-align: center;
+    color: #fff;
+    padding-top: 4%;
+    padding-bottom: 3%;
+    width: 25%;
+    cursor: pointer;
+
+    .sales-amount {
+      margin-top: -8%;
+      font-size: 2rem;
+    }
+
+    &.active {
+      background-color: rgba(241, 241, 241, 0.16);
+      position: relative;
+
+      &:after {
+        content: "";
+        position: absolute;
+        left: 40%;
+        bottom: 0;
+        width: 0;
+        height: 0;
+        border-left: 15px solid transparent;
+        border-right: 15px solid transparent;
+        border-bottom: 15px solid #fff;
+        clear: both;
+      }
+    }
+  }
+}
